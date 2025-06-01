@@ -1273,8 +1273,8 @@ data with its predicted results into the
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Independence-based criteria&quot;</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Separation-based criteria&quot;</span>, <span class="dv">3</span>, <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Sufficiency-based criteria&quot;</span>, <span class="dv">7</span>, <span class="dv">7</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Other criteria&quot;</span>, <span class="dv">8</span>, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Sufficiency-based criteria&quot;</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Other criteria&quot;</span>, <span class="dv">9</span>, <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
 <span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>    <span class="at">font_size =</span> <span class="dv">10</span>,         <span class="co"># Controls font size manually</span></span>
@@ -1455,14 +1455,14 @@ Balance for Negative Class
 [1.29, 1.74]
 </td>
 </tr>
-<tr grouplength="1">
+<tr grouplength="2">
 <td colspan="7" style="border-bottom: 1px solid;">
 <strong>Sufficiency-based criteria</strong>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Predictive Parity
+Positive Predictive Parity
 </td>
 <td style="text-align:right;">
 0.62
@@ -1481,6 +1481,29 @@ Predictive Parity
 </td>
 <td style="text-align:left;">
 [0.72, 1.23]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Negative Predictive Parity
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:left;">
+[-0.15, 0.19]
+</td>
+<td style="text-align:right;">
+1.02
+</td>
+<td style="text-align:left;">
+[0.79, 1.33]
 </td>
 </tr>
 <tr grouplength="3">
@@ -1508,7 +1531,7 @@ Brier Score Parity
 1.12
 </td>
 <td style="text-align:left;">
-[0.89, 1.43]
+[0.88, 1.43]
 </td>
 </tr>
 <tr>
@@ -1548,13 +1571,13 @@ Treatment Equality
 -2.21
 </td>
 <td style="text-align:left;">
-[-4.35, -0.07]
+[-4.5, 0.08]
 </td>
 <td style="text-align:right;">
 0.32
 </td>
 <td style="text-align:left;">
-[0.15, 0.68]
+[0.15, 0.69]
 </td>
 </tr>
 </tbody>
