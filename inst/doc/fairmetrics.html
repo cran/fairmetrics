@@ -1259,7 +1259,7 @@ the predicted probabilities using a fixed cutoff. We set a threshold of
 <p>To calculate various fairness metrics for the model, we pass our test
 data with its predicted results into the
 <code>get_fairness_metrics</code> function.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>fairness_result <span class="ot">&lt;-</span> fairmetrics<span class="sc">::</span><span class="fu">get_fairness_metrics</span>(</span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> fairmetrics<span class="sc">::</span><span class="fu">get_fairness_metrics</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="at">data =</span> test_data,</span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="at">outcome =</span> <span class="st">&quot;day_28_flg&quot;</span>,</span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,</span>
@@ -1269,7 +1269,7 @@ data with its predicted results into the
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  <span class="at">cutoff =</span> cut_off</span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a> )</span>
 <span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(fairness_result, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">escape =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(result<span class="sc">$</span>fairness, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">escape =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Independence-based criteria&quot;</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Separation-based criteria&quot;</span>, <span class="dv">3</span>, <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
@@ -1284,16 +1284,7 @@ data with its predicted results into the
 <thead>
 <tr>
 <th style="text-align:left;">
-Metric
-</th>
-<th style="text-align:left;">
-Full Metric Name
-</th>
-<th style="text-align:right;">
-GroupFemale
-</th>
-<th style="text-align:right;">
-GroupMale
+Metirc
 </th>
 <th style="text-align:right;">
 Difference
@@ -1311,22 +1302,13 @@ Ratio
 </thead>
 <tbody>
 <tr grouplength="2">
-<td colspan="8" style="border-bottom: 1px solid;">
+<td colspan="5" style="border-bottom: 1px solid;">
 <strong>Independence-based criteria</strong>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-PPR
-</td>
-<td style="text-align:left;">
 Statistical Parity
-</td>
-<td style="text-align:right;">
-0.17
-</td>
-<td style="text-align:right;">
-0.08
 </td>
 <td style="text-align:right;">
 0.09
@@ -1343,16 +1325,7 @@ Statistical Parity
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-PPR
-</td>
-<td style="text-align:left;">
-Conditional Statistical Parity (age &gt;=60)
-</td>
-<td style="text-align:right;">
-0.34
-</td>
-<td style="text-align:right;">
-0.21
+Conditional Statistical Parity
 </td>
 <td style="text-align:right;">
 0.13
@@ -1368,22 +1341,13 @@ Conditional Statistical Parity (age &gt;=60)
 </td>
 </tr>
 <tr grouplength="4">
-<td colspan="8" style="border-bottom: 1px solid;">
+<td colspan="5" style="border-bottom: 1px solid;">
 <strong>Separation-based criteria</strong>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-FNR
-</td>
-<td style="text-align:left;">
 Equal Opportunity
-</td>
-<td style="text-align:right;">
-0.38
-</td>
-<td style="text-align:right;">
-0.62
 </td>
 <td style="text-align:right;">
 -0.24
@@ -1400,16 +1364,7 @@ Equal Opportunity
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-FPR
-</td>
-<td style="text-align:left;">
 Predictive Equality
-</td>
-<td style="text-align:right;">
-0.08
-</td>
-<td style="text-align:right;">
-0.03
 </td>
 <td style="text-align:right;">
 0.05
@@ -1426,16 +1381,7 @@ Predictive Equality
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Avg. Predicted Prob.
-</td>
-<td style="text-align:left;">
 Balance for Positive Class
-</td>
-<td style="text-align:right;">
-0.46
-</td>
-<td style="text-align:right;">
-0.37
 </td>
 <td style="text-align:right;">
 0.09
@@ -1452,16 +1398,7 @@ Balance for Positive Class
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Avg. Predicted Prob.
-</td>
-<td style="text-align:left;">
 Balance for Negative Class
-</td>
-<td style="text-align:right;">
-0.15
-</td>
-<td style="text-align:right;">
-0.10
 </td>
 <td style="text-align:right;">
 0.05
@@ -1477,22 +1414,13 @@ Balance for Negative Class
 </td>
 </tr>
 <tr grouplength="2">
-<td colspan="8" style="border-bottom: 1px solid;">
+<td colspan="5" style="border-bottom: 1px solid;">
 <strong>Sufficiency-based criteria</strong>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-PPV
-</td>
-<td style="text-align:left;">
 Positive Predictive Parity
-</td>
-<td style="text-align:right;">
-0.62
-</td>
-<td style="text-align:right;">
-0.66
 </td>
 <td style="text-align:right;">
 -0.04
@@ -1509,16 +1437,7 @@ Positive Predictive Parity
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-NPV
-</td>
-<td style="text-align:left;">
 Negative Predictive Parity
-</td>
-<td style="text-align:right;">
-0.92
-</td>
-<td style="text-align:right;">
-0.90
 </td>
 <td style="text-align:right;">
 0.02
@@ -1534,22 +1453,13 @@ Negative Predictive Parity
 </td>
 </tr>
 <tr grouplength="3">
-<td colspan="8" style="border-bottom: 1px solid;">
+<td colspan="5" style="border-bottom: 1px solid;">
 <strong>Other criteria</strong>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Brier Score
-</td>
-<td style="text-align:left;">
 Brier Score Parity
-</td>
-<td style="text-align:right;">
-0.09
-</td>
-<td style="text-align:right;">
-0.08
 </td>
 <td style="text-align:right;">
 0.01
@@ -1566,16 +1476,7 @@ Brier Score Parity
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Accuracy
-</td>
-<td style="text-align:left;">
 Overall Accuracy Parity
-</td>
-<td style="text-align:right;">
-0.87
-</td>
-<td style="text-align:right;">
-0.88
 </td>
 <td style="text-align:right;">
 -0.01
@@ -1592,16 +1493,7 @@ Overall Accuracy Parity
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-FN/FP Ratio
-</td>
-<td style="text-align:left;">
 Treatment Equality
-</td>
-<td style="text-align:right;">
-1.03
-</td>
-<td style="text-align:right;">
-3.24
 </td>
 <td style="text-align:right;">
 -2.21

@@ -102,7 +102,7 @@ test_data %>%
   dplyr::summarise(fpr = mean(pred))
 
 ## -----------------------------------------------------------------------------
-fairness_result <- fairmetrics::get_fairness_metrics(
+result <- fairmetrics::get_fairness_metrics(
   data = test_data,
   outcome = "day_28_flg",
   group = "gender",
@@ -112,7 +112,7 @@ fairness_result <- fairmetrics::get_fairness_metrics(
   cutoff = cut_off
  )
 
-kableExtra::kable(fairness_result, booktabs = TRUE, escape = FALSE) %>%
+kableExtra::kable(result$fairness, booktabs = TRUE, escape = FALSE) %>%
   kableExtra::kable_styling(full_width = FALSE) %>%
   kableExtra::pack_rows("Independence-based criteria", 1, 2) %>%
   kableExtra::pack_rows("Separation-based criteria", 3, 6) %>%

@@ -1,10 +1,12 @@
 #' Compute Fairness Metrics for Binary Classification
 #'
-#' This function evaluates a comprehensive set of fairness metrics for binary classification models
-#' across groups defined by a sensitive attribute (e.g., race, gender). It returns a unified
-#' data frame containing metric values, optionally with bootstrap confidence intervals.
+#' Computes a comprehensive set of fairness metrics for binary classification models, disaggregated by a sensitive attribute (e.g., race, gender). Optionally, conditional fairness can be evaluated using a second attribute and a specified condition. The function also computes corresponding performance metrics used in the fairness calculations.
 #'
-#' ### Metrics Included:
+#' The results are returned as a list of two data frames:
+#' - `performance`: Contains performance metrics (e.g., TPR, FPR, PPV) by group.
+#' - `fairness`: Contains group-level fairness metrics (e.g., disparities or ratios), confidence intervals (if specified).
+#'
+#' ### Fairness Metrics Included:
 #' - **Statistical Parity**: Difference in positive prediction rates across groups.
 #' - **Conditional Statistical Parity** *(if group2 and condition are specified)*:
 #'   Parity conditioned on a second group and value.
@@ -35,7 +37,11 @@
 #' @param alpha Significance level for confidence intervals. Default is 0.05.
 #' @param digits Number of digits to round the metrics to. Default is 2.
 #'
-#' @return A data frame with the evaluated fairness metrics.
+#' @return A list containing:
+#' \describe{
+#'   \item{performance}{Data frame with performance metrics by group.}
+#'   \item{fairness}{Data frame with computed fairness metrics and optional confidence intervals.}
+#' }
 #'
 #' @examples
 #' \donttest{
@@ -98,7 +104,6 @@ get_fairness_metrics <- function(data,
     alpha = alpha,
     digits = digits,
     message = FALSE
-
   )
 
   if (!(is.null(group2) & is.null(condition))) {
@@ -119,22 +124,6 @@ get_fairness_metrics <- function(data,
       digits = digits,
       message = FALSE
     )
-
-    split_condition <- strsplit(condition, split = '')[[1]]
-    if (split_condition[1] == ">" | split_condition[1] == "=") {
-      cond_stats_parity[["Full Metric Name"]] <- paste0("Conditional Statistical Parity (",
-                                              group2,
-                                              " ",
-                                              condition,
-                                              ")")
-    } else {
-      cond_stats_parity[["Full Metric Name"]] <- paste0("Conditional Statistical Parity (",
-                                              condition,
-                                              " ",
-                                              group2,
-                                              ")")
-    }
-
   }
   eq_opp <- eval_eq_opp(
     data = data,
@@ -245,56 +234,48 @@ get_fairness_metrics <- function(data,
     message = FALSE
   )
 
-  # Rename metrics so that its easy to read
-  stats_parity[["Full Metric Name"]] <- "Statistical Parity"
-  eq_opp[["Full Metric Name"]] <- "Equal Opportunity"
-  pred_equality[["Full Metric Name"]] <- "Predictive Equality"
-  pos_class_bal[["Full Metric Name"]] <- "Balance for Positive Class"
-  neg_class_bal[["Full Metric Name"]] <- "Balance for Negative Class"
-  pos_pred_parity[["Full Metric Name"]] <- "Positive Predictive Parity"
-  neg_pred_parity[["Full Metric Name"]] <- "Negative Predictive Parity"
-  bs_parity[["Full Metric Name"]] <- "Brier Score Parity"
-  acc_parity[["Full Metric Name"]] <- "Overall Accuracy Parity"
-  treatment_equality[["Full Metric Name"]] <- "Treatment Equality"
-
+  # Model performance summary
   if (!(is.null(group2) & is.null(condition))) {
-    result <- do.call(
-      rbind,
-      list(
-        stats_parity,
-        cond_stats_parity,
-        eq_opp,
-        pred_equality,
-        pos_class_bal,
-        neg_class_bal,
-        pos_pred_parity,
-        neg_pred_parity,
-        bs_parity,
-        acc_parity,
-        treatment_equality
-      )
-    )
-
+    summary <- rbind(stats_parity, cond_stats_parity,
+                     eq_opp, pred_equality, pos_class_bal,
+                     neg_class_bal, pos_pred_parity, neg_pred_parity, bs_parity,
+                     acc_parity, treatment_equality)
+    fairness_summary <- summary[, -c(1:3)]
+    fairness_summary <- cbind( "Metirc" = c("Statistical Parity",
+                                            "Conditional Statistical Parity",
+                                            "Equal Opportunity",
+                                            "Predictive Equality",
+                                            "Balance for Positive Class",
+                                            "Balance for Negative Class",
+                                            "Positive Predictive Parity",
+                                            "Negative Predictive Parity",
+                                            "Brier Score Parity",
+                                            "Overall Accuracy Parity",
+                                            "Treatment Equality"),
+                               fairness_summary)
   } else{
-    result <- do.call(
-      rbind,
-      list(
-        stats_parity,
-        eq_opp,
-        pred_equality,
-        pos_class_bal,
-        neg_class_bal,
-        pos_pred_parity,
-        neg_pred_parity,
-        bs_parity,
-        acc_parity,
-        treatment_equality
-      )
-    )
-
+    summary <- rbind(stats_parity, eq_opp, pred_equality, pos_class_bal,
+                     neg_class_bal, pos_pred_parity, neg_pred_parity, bs_parity,
+                     acc_parity, treatment_equality)
+    fairness_summary <- summary[, -c(1:3)]
+    fairness_summary <- cbind( "Metric" = c("Statistical Parity",
+                                            "Equal Opportunity",
+                                            "Predictive Equality",
+                                            "Balance for Positive Class",
+                                            "Balance for Negative Class",
+                                            "Positive Predictive Parity",
+                                            "Negative Predictive Parity",
+                                            "Brier Score Parity",
+                                            "Overall Accuracy Parity",
+                                            "Treatment Equality"),
+                               fairness_summary)
   }
 
-  result <- result[, c("Metric", "Full Metric Name", setdiff(names(result), c("Metric", "Full Metric Name")))]
+  model_summary <- summary[,1:3]
 
+  result <- list(
+    performance = model_summary,
+    fairness = fairness_summary
+  )
   return(result)
 }
