@@ -34,7 +34,8 @@ sensitive attribute}
 
 \item{digits}{Number of digits to round the results to, default is 2}
 
-\item{message}{Whether to print the results, default is TRUE}
+\item{message}{Logical; if TRUE (default), prints a textual summary of the
+fairness evaluation. Only works if \code{confint} is TRUE.}
 }
 \value{
 A list containing the following elements:
@@ -53,7 +54,7 @@ confidence interval for the ratio in average predicted probability
 \description{
 This function evaluates \emph{Balance for the Positive Class}, a fairness criterion
 that checks whether the model assigns similar predicted probabilities across groups
-among individuals whose true outcome is positive (i.e., \(Y = 1\)).
+among individuals whose true outcome is positive (i.e. \eqn{Y = 1}).
 }
 \examples{
 \donttest{
