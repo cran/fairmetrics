@@ -12,7 +12,7 @@
 
 
 
-<title>Binary Protected Attributes</title>
+<title>Assessing Model Fairness Across Binary Protected Attributes</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -27,230 +27,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
   }
 });
 </script>
-<script>$(document).ready(function(){
-    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
-        $('[data-toggle="tooltip"]').tooltip();
-    }
-    if ($('[data-toggle="popover"]').popover === 'function') {
-        $('[data-toggle="popover"]').popover();
-    }
-});
-</script>
-<style type="text/css">
-.lightable-minimal {
-border-collapse: separate;
-border-spacing: 16px 1px;
-width: 100%;
-margin-bottom: 10px;
-}
-.lightable-minimal td {
-margin-left: 5px;
-margin-right: 5px;
-}
-.lightable-minimal th {
-margin-left: 5px;
-margin-right: 5px;
-}
-.lightable-minimal thead tr:last-child th {
-border-bottom: 2px solid #00000050;
-empty-cells: hide;
-}
-.lightable-minimal tbody tr:first-child td {
-padding-top: 0.5em;
-}
-.lightable-minimal.lightable-hover tbody tr:hover {
-background-color: #f5f5f5;
-}
-.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-classic {
-border-top: 0.16em solid #111111;
-border-bottom: 0.16em solid #111111;
-width: 100%;
-margin-bottom: 10px;
-margin: 10px 5px;
-}
-.lightable-classic tfoot tr td {
-border: 0;
-}
-.lightable-classic tfoot tr:first-child td {
-border-top: 0.14em solid #111111;
-}
-.lightable-classic caption {
-color: #222222;
-}
-.lightable-classic td {
-padding-left: 5px;
-padding-right: 5px;
-color: #222222;
-}
-.lightable-classic th {
-padding-left: 5px;
-padding-right: 5px;
-font-weight: normal;
-color: #222222;
-}
-.lightable-classic thead tr:last-child th {
-border-bottom: 0.10em solid #111111;
-}
-.lightable-classic.lightable-hover tbody tr:hover {
-background-color: #F9EEC1;
-}
-.lightable-classic.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-classic-2 {
-border-top: 3px double #111111;
-border-bottom: 3px double #111111;
-width: 100%;
-margin-bottom: 10px;
-}
-.lightable-classic-2 tfoot tr td {
-border: 0;
-}
-.lightable-classic-2 tfoot tr:first-child td {
-border-top: 3px double #111111;
-}
-.lightable-classic-2 caption {
-color: #222222;
-}
-.lightable-classic-2 td {
-padding-left: 5px;
-padding-right: 5px;
-color: #222222;
-}
-.lightable-classic-2 th {
-padding-left: 5px;
-padding-right: 5px;
-font-weight: normal;
-color: #222222;
-}
-.lightable-classic-2 tbody tr:last-child td {
-border-bottom: 3px double #111111;
-}
-.lightable-classic-2 thead tr:last-child th {
-border-bottom: 1px solid #111111;
-}
-.lightable-classic-2.lightable-hover tbody tr:hover {
-background-color: #F9EEC1;
-}
-.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-material {
-min-width: 100%;
-white-space: nowrap;
-table-layout: fixed;
-font-family: Roboto, sans-serif;
-border: 1px solid #EEE;
-border-collapse: collapse;
-margin-bottom: 10px;
-}
-.lightable-material tfoot tr td {
-border: 0;
-}
-.lightable-material tfoot tr:first-child td {
-border-top: 1px solid #EEE;
-}
-.lightable-material th {
-height: 56px;
-padding-left: 16px;
-padding-right: 16px;
-}
-.lightable-material td {
-height: 52px;
-padding-left: 16px;
-padding-right: 16px;
-border-top: 1px solid #eeeeee;
-}
-.lightable-material.lightable-hover tbody tr:hover {
-background-color: #f5f5f5;
-}
-.lightable-material.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-material.lightable-striped tbody td {
-border: 0;
-}
-.lightable-material.lightable-striped thead tr:last-child th {
-border-bottom: 1px solid #ddd;
-}
-.lightable-material-dark {
-min-width: 100%;
-white-space: nowrap;
-table-layout: fixed;
-font-family: Roboto, sans-serif;
-border: 1px solid #FFFFFF12;
-border-collapse: collapse;
-margin-bottom: 10px;
-background-color: #363640;
-}
-.lightable-material-dark tfoot tr td {
-border: 0;
-}
-.lightable-material-dark tfoot tr:first-child td {
-border-top: 1px solid #FFFFFF12;
-}
-.lightable-material-dark th {
-height: 56px;
-padding-left: 16px;
-padding-right: 16px;
-color: #FFFFFF60;
-}
-.lightable-material-dark td {
-height: 52px;
-padding-left: 16px;
-padding-right: 16px;
-color: #FFFFFF;
-border-top: 1px solid #FFFFFF12;
-}
-.lightable-material-dark.lightable-hover tbody tr:hover {
-background-color: #FFFFFF12;
-}
-.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
-background-color: #FFFFFF12;
-}
-.lightable-material-dark.lightable-striped tbody td {
-border: 0;
-}
-.lightable-material-dark.lightable-striped thead tr:last-child th {
-border-bottom: 1px solid #FFFFFF12;
-}
-.lightable-paper {
-width: 100%;
-margin-bottom: 10px;
-color: #444;
-}
-.lightable-paper tfoot tr td {
-border: 0;
-}
-.lightable-paper tfoot tr:first-child td {
-border-top: 1px solid #00000020;
-}
-.lightable-paper thead tr:last-child th {
-color: #666;
-vertical-align: bottom;
-border-bottom: 1px solid #00000020;
-line-height: 1.15em;
-padding: 10px 5px;
-}
-.lightable-paper td {
-vertical-align: middle;
-border-bottom: 1px solid #00000010;
-line-height: 1.15em;
-padding: 7px 5px;
-}
-.lightable-paper.lightable-hover tbody tr:hover {
-background-color: #F9EEC1;
-}
-.lightable-paper.lightable-striped tbody tr:nth-child(even) {
-background-color: #00000008;
-}
-.lightable-paper.lightable-striped tbody td {
-border: 0;
-}
-</style>
 
 <style type="text/css">
 code{white-space: pre-wrap;}
@@ -560,986 +336,224 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">Binary Protected Attributes</h1>
+<h1 class="title toc-ignore">Assessing Model Fairness Across Binary
+Protected Attributes</h1>
 
 
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>We illustrate the usage of the <code>fairmetrics</code> package
-through a case study using a publicly available dataset of 1,776 ICU
-patients from the MIMIC-II clinical database, focusing on predicting
-28-day mortality and evaluating disparities in model performance across
-sex.</p>
-<p>The following packages are used for the analysis along with the
-<code>fairmetrics</code> package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Packages we are using for the analysis</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">library</span>(SpecsVerification)</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co"># Our package</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="fu">library</span>(fairmetrics)</span></code></pre></div>
-<p>The “Data Preprocessing” section discusses the dataset, the handling
-of missing data, model construction and standard predictive model
-evaluation through train-test splitting for binary classification. The
-“Fairness Evaluation” section shows how to evaluate the model’s fairness
-toward binary protected attributes with the <code>fairmetrics</code>
-package.</p>
-<!--
-Finally, the “Practical Considerations” section discusses the inherent trade-offs between different fairness definitions in clinical settings and highlights the challenges of enforcing fairness when outcome prevalence differs across groups. Details regarding the construction of 95% confidence intervals are provided in the appendix.
---->
-</div>
-<div id="data-preprocessing" class="section level1">
-<h1>Data Preprocessing</h1>
-<p>The dataset used in this analysis is the MIMIC II clinical database
-[2], which has been previously studied to explore the relationship
+<p>This vingette demonstrates how to obtain, report and interpret model
+fairness metrics for binary protected attributes with the
+<code>fairmetrics</code> package. We illustrate this through a case
+study based on a preprocessed version of the MIMIC-II clinical database
+[1], which has been previously studied to explore the relationship
 between indwelling arterial catheters in hemodynamically stable patients
-and respiratory failure in relation to mortality outcomes [3]. It
-includes 46 variables which cover demographics and clinical
-characteristics (including white blood cell count, heart rate during ICU
-stays and others) along with a 28-day mortality indicator
-(<code>day_28_flg</code>) for 1,776 patients. The data has been made
-publicly available by <a href="https://physionet.org/content/mimic2-iaccd/1.0/">PhysioNet</a> [4]
-and is available in the <code>fairmetrics</code> package as the
-<code>mimic</code> dataset.</p>
-<div id="handling-missing-data" class="section level2">
-<h2>Handling Missing Data</h2>
-<p>We first assess the extent of missingness in the dataset. For each
-variable, we calculate both the total number and the percentage of
-missing values with <code>naniar::miss_var_summary()</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Loading mimic dataset </span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># (available in fairmetrics)</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mimic&quot;</span>) </span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>missing_data_summary<span class="ot">&lt;-</span> naniar<span class="sc">::</span><span class="fu">miss_var_summary</span>(mimic, <span class="at">digits=</span> <span class="dv">3</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(missing_data_summary, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">escape =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>    <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  )</span></code></pre></div>
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-variable
-</th>
-<th style="text-align:right;">
-n_miss
-</th>
-<th style="text-align:right;">
-pct_miss
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-bmi
-</td>
-<td style="text-align:right;">
-466
-</td>
-<td style="text-align:right;">
-26.239
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-po2_first
-</td>
-<td style="text-align:right;">
-186
-</td>
-<td style="text-align:right;">
-10.473
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-pco2_first
-</td>
-<td style="text-align:right;">
-186
-</td>
-<td style="text-align:right;">
-10.473
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-iv_day_1
-</td>
-<td style="text-align:right;">
-143
-</td>
-<td style="text-align:right;">
-8.052
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-weight_first
-</td>
-<td style="text-align:right;">
-110
-</td>
-<td style="text-align:right;">
-6.194
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sapsi_first
-</td>
-<td style="text-align:right;">
-85
-</td>
-<td style="text-align:right;">
-4.786
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-wbc_first
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.450
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hgb_first
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.450
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-platelet_first
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.450
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sofa_first
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.338
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-creatinine_first
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.338
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sodium_first
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-potassium_first
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tco2_first
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-chloride_first
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-bun_first
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-temp_1st
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.169
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-gender_num
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.056
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-aline_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-icu_los_day
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hospital_los_day
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-age
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-service_unit
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-service_num
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-day_icu_intime
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-day_icu_intime_num
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hour_icu_intime
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hosp_exp_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-icu_exp_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-day_28_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mort_day_censored
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-censor_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sepsis_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-chf_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-afib_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-renal_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-liver_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-copd_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cad_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-stroke_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mal_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-resp_flg
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-map_1st
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hr_1st
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-spo2_1st
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abg_count
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-</tbody>
-</table>
-<p>To ensure data quality, the following procedure is applied to handle
-missing data:</p>
-<ul>
-<li><p>Removal of that variables which had more than 10% missing values.
-Three variables had more than 10% of missing values: body mass index
-(<code>bmi</code>; 26.2%), first partial pressure of oxygen
-(<code>po2_first</code>; 10.5%), and first partial pressure of carbon
-dioxide (<code>pco2_first</code>; 10.5%).</p></li>
-<li><p>Remaining missing values are imputed using the median value of
-the variable which they belong to.</p></li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Remove columns with more than 10% missing values</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>columns_to_remove <span class="ot">&lt;-</span> missing_data_summary <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pct_miss <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(variable)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  </span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>mimic <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(mimic, </span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>                       <span class="sc">-</span>dplyr<span class="sc">::</span><span class="fu">one_of</span>(columns_to_remove)</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>                       )</span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co"># Impute remaining missing values with median</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>mimic <span class="ot">&lt;-</span> mimic <span class="sc">%&gt;%</span> </span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">across</span>(</span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">where</span>(<span class="sc">~</span><span class="fu">any</span>(<span class="fu">is.na</span>(.))), </span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>                  <span class="sc">~</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(.), <span class="fu">median</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>), .)</span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>                  )</span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>    )</span></code></pre></div>
-<p>We additionally remove <code>sepsis_flg</code> column from the
-dataset as it contains a single unique value across all observations.
-Since this does not provide any useful information for model training,
-it is excluded.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Identify columns that have only one unique value</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>cols_with_one_value <span class="ot">&lt;-</span> <span class="fu">sapply</span>(mimic, <span class="cf">function</span>(x) <span class="fu">length</span>(<span class="fu">unique</span>(x)) <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># Subset the dataframe to remove these columns</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>mimic <span class="ot">&lt;-</span> mimic[, <span class="sc">!</span>cols_with_one_value]</span></code></pre></div>
+and respiratory failure in relation to mortality outcomes [2]. The
+original, unprocessed dataset is publicly available through <a href="https://physionet.org/content/mimic2-iaccd/1.0/">PhysioNet</a>
+[3]. A preprocessed version of this dataset is included in the
+<code>fairmetrics</code> package as the <code>mimic_preprocessed</code>
+and is used in this vingette.</p>
 </div>
-<div id="model-building" class="section level2">
-<h2>Model Building</h2>
-<p>Before training the model, we further remove variables that are
-directly correlated with patient outcomes to prevent <a href="https://en.wikipedia.org/wiki/Leakage_%28machine_learning%29">data
-leakage</a>. In particular, we inspect the correlation matrix of the
-numeric features and exclude variables such as the hospital expiration
-flag (<code>hosp_exp_flg</code>), the ICU expiration flag
-(<code>icu_exp_flg</code>), the mortality censoring day
-(<code>mort_day_censored</code>), and the censoring flag
-(<code>censor_flg</code>), which are strongly associated patient
-outcomes.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Remove columns that are highly correlated with the outcome variable</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="fu">cor</span>(<span class="fu">select_if</span>(mimic, is.numeric)), <span class="at">method =</span> <span class="st">&quot;color&quot;</span>, <span class="at">tl.cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>mimic <span class="ot">&lt;-</span> mimic <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;hosp_exp_flg&quot;</span>, <span class="st">&quot;icu_exp_flg&quot;</span>, <span class="st">&quot;mort_day_censored&quot;</span>, <span class="st">&quot;censor_flg&quot;</span>))</span></code></pre></div>
-<p>We split the dataset into a training and testing sets. The first 700
-patients are used as the training set and the remaining patients are
-used as the testing set. The hyperparameters for the random forest (RF)
-model are set to use 1000 trees and a random sampling of 6 variables at
-each split, determined by the square root of the number of predictors.
-After training, the overall area under the receiver operating
-characteristic curve (AUC) for the model on the test set is 0.90 and the
-overall accuracy of the model on the test set is 0.88.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Use 700 labels to train the mimic</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> mimic <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">row_number</span>() <span class="sc">&lt;=</span> <span class="dv">700</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    )</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co"># Fit a random forest model</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>rf_model <span class="ot">&lt;-</span> randomForest<span class="sc">::</span><span class="fu">randomForest</span>(<span class="fu">factor</span>(day_28_flg) <span class="sc">~</span> ., <span class="at">data =</span> train_data, <span class="at">ntree =</span> <span class="dv">1000</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co"># Test the model on the remaining data</span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> mimic <span class="sc">%&gt;%</span> </span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">row_number</span>() <span class="sc">&gt;</span> <span class="dv">700</span></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a>    )</span>
-<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>test_data<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_model, <span class="at">newdata =</span> test_data, <span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)[,<span class="dv">2</span>]</span>
-<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="co"># Check the AUC</span></span>
-<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a>roc_obj <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(test_data<span class="sc">$</span>day_28_flg, test_data<span class="sc">$</span>pred)</span>
-<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="co">#&gt; Setting levels: control = 0, case = 1</span></span>
-<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="co">#&gt; Setting direction: controls &lt; cases</span></span>
-<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a>roc_auc <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">auc</span>(roc_obj)</span>
-<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a>roc_auc</span>
-<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="co">#&gt; Area under the curve: 0.8971</span></span></code></pre></div>
-</div>
+<div id="data-split-and-model-construction" class="section level1">
+<h1>Data Split and Model Construction</h1>
+<p>In this setting, we construct a model that will predict 28-day
+mortality (<code>day_28_flg</code>). To do this, we split the dataset
+into a training and testing sets and fit a random forest model. The
+first 700 patients are used as the training set and the remaining
+patients are used as the testing set. After the model is fit, it is used
+to predict 28-day mortality. The predicted probabilities are saved as
+new column in the testing data and are used to assess model
+fairness.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(fairmetrics)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co"># Use 700 labels to train on the mimic_preprocessed dataset</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> mimic_preprocessed <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">&lt;=</span> <span class="dv">700</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co"># Test the model on the remaining data</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> mimic_preprocessed <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">&gt;</span> <span class="dv">700</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co"># Fit a random forest model</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>rf_model <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(<span class="fu">factor</span>(day_28_flg) <span class="sc">~</span> ., <span class="at">data =</span> train_data, <span class="at">ntree =</span> <span class="dv">1000</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co"># Save model prediction</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>test_data<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_model, <span class="at">newdata =</span> test_data, <span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)[, <span class="dv">2</span>]</span></code></pre></div>
 </div>
 <div id="fairness-evaluation" class="section level1">
 <h1>Fairness Evaluation</h1>
-<p>To evaluate fairness, we use the testing set results to examine
-patient gender as a binary protected attribute and 28-day mortality
-(<code>day_28_flg</code>) as the outcome of interest.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Recode gender variable explicitly for readability: </span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> test_data <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">gender =</span> <span class="fu">ifelse</span>(gender_num <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
+<p>The <code>fairmetrics</code> package is used to assess model fairness
+across binary protected attributes. This means that the number of unique
+values in the protected attribute column need to be exactly two. To
+evaluate fairness of the random forest model which we fit, we examine
+patient gender as the binary protected attribute.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Recode gender variable explicitly for readability: </span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> test_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender =</span> <span class="fu">ifelse</span>(gender_num <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
 <p>Since many fairness metrics require binary predictions, we threshold
 the predicted probabilities using a fixed cutoff. We set a threshold of
 0.41 to maintain the overall false positive rate (FPR) at approximately
-5%.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Control the overall false positive rate (FPR) at 5% by setting a threshold.</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>cut_off <span class="ot">&lt;-</span> <span class="fl">0.41</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>test_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">ifelse</span>(pred <span class="sc">&gt;</span> cut_off, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(day_28_flg <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">fpr =</span> <span class="fu">mean</span>(pred))</span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="co">#&gt;          fpr</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co">#&gt; 1 0.05054945</span></span></code></pre></div>
-<p>To calculate various fairness metrics for the model, we pass our test
-data with its predicted results into the
-<code>get_fairness_metrics</code> function.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> fairmetrics<span class="sc">::</span><span class="fu">get_fairness_metrics</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="at">data =</span> test_data,</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="at">outcome =</span> <span class="st">&quot;day_28_flg&quot;</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="at">group2 =</span> <span class="st">&quot;age&quot;</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="at">condition =</span> <span class="st">&quot;&gt;=60&quot;</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  <span class="at">probs =</span> <span class="st">&quot;pred&quot;</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  <span class="at">cutoff =</span> cut_off</span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a> )</span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(result<span class="sc">$</span>fairness, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">escape =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Independence-based criteria&quot;</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Separation-based criteria&quot;</span>, <span class="dv">3</span>, <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Sufficiency-based criteria&quot;</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">pack_rows</span>(<span class="st">&quot;Other criteria&quot;</span>, <span class="dv">9</span>, <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
-<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>    <span class="at">font_size =</span> <span class="dv">10</span>,         <span class="co"># Controls font size manually</span></span>
-<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>    <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span></span>
-<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>  )</span></code></pre></div>
-<table class="table table" style="width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Metric
-</th>
-<th style="text-align:right;">
-Difference
-</th>
-<th style="text-align:left;">
-95% Diff CI
-</th>
-<th style="text-align:right;">
-Ratio
-</th>
-<th style="text-align:left;">
-95% Ratio CI
-</th>
-</tr>
-</thead>
-<tbody>
-<tr grouplength="2">
-<td colspan="5" style="border-bottom: 1px solid;">
-<strong>Independence-based criteria</strong>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Statistical Parity
-</td>
-<td style="text-align:right;">
-0.09
-</td>
-<td style="text-align:left;">
-[0.05, 0.13]
-</td>
-<td style="text-align:right;">
-2.12
-</td>
-<td style="text-align:left;">
-[1.48, 3.05]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Conditional Statistical Parity
-</td>
-<td style="text-align:right;">
-0.13
-</td>
-<td style="text-align:left;">
-[0.05, 0.21]
-</td>
-<td style="text-align:right;">
-1.62
-</td>
-<td style="text-align:left;">
-[1.18, 2.22]
-</td>
-</tr>
-<tr grouplength="4">
-<td colspan="5" style="border-bottom: 1px solid;">
-<strong>Separation-based criteria</strong>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Equal Opportunity
-</td>
-<td style="text-align:right;">
--0.24
-</td>
-<td style="text-align:left;">
-[-0.39, -0.09]
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:left;">
-[0.44, 0.86]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Predictive Equality
-</td>
-<td style="text-align:right;">
-0.05
-</td>
-<td style="text-align:left;">
-[0.02, 0.08]
-</td>
-<td style="text-align:right;">
-2.67
-</td>
-<td style="text-align:left;">
-[1.39, 5.1]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Balance for Positive Class
-</td>
-<td style="text-align:right;">
-0.09
-</td>
-<td style="text-align:left;">
-[0.04, 0.14]
-</td>
-<td style="text-align:right;">
-1.24
-</td>
-<td style="text-align:left;">
-[1.09, 1.41]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Balance for Negative Class
-</td>
-<td style="text-align:right;">
-0.05
-</td>
-<td style="text-align:left;">
-[0.03, 0.07]
-</td>
-<td style="text-align:right;">
-1.50
-</td>
-<td style="text-align:left;">
-[1.29, 1.74]
-</td>
-</tr>
-<tr grouplength="2">
-<td colspan="5" style="border-bottom: 1px solid;">
-<strong>Sufficiency-based criteria</strong>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Positive Predictive Parity
-</td>
-<td style="text-align:right;">
--0.04
-</td>
-<td style="text-align:left;">
-[-0.21, 0.13]
-</td>
-<td style="text-align:right;">
-0.94
-</td>
-<td style="text-align:left;">
-[0.72, 1.23]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Negative Predictive Parity
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-<td style="text-align:left;">
-[-0.15, 0.19]
-</td>
-<td style="text-align:right;">
-1.02
-</td>
-<td style="text-align:left;">
-[0.79, 1.33]
-</td>
-</tr>
-<tr grouplength="3">
-<td colspan="5" style="border-bottom: 1px solid;">
-<strong>Other criteria</strong>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Brier Score Parity
-</td>
-<td style="text-align:right;">
-0.01
-</td>
-<td style="text-align:left;">
-[-0.01, 0.03]
-</td>
-<td style="text-align:right;">
-1.12
-</td>
-<td style="text-align:left;">
-[0.88, 1.43]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Overall Accuracy Parity
-</td>
-<td style="text-align:right;">
--0.01
-</td>
-<td style="text-align:left;">
-[-0.05, 0.03]
-</td>
-<td style="text-align:right;">
-0.99
-</td>
-<td style="text-align:left;">
-[0.94, 1.04]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Treatment Equality
-</td>
-<td style="text-align:right;">
--2.21
-</td>
-<td style="text-align:left;">
-[-4.5, 0.08]
-</td>
-<td style="text-align:right;">
-0.32
-</td>
-<td style="text-align:left;">
-[0.15, 0.69]
-</td>
-</tr>
-</tbody>
-</table>
-<p>From the outputted fairness metrics we note:</p>
-<ul>
-<li><p>Independence is likely violated, as evidenced by the statistical
-parity metric which shows a 9% difference (95% CI: [5%, 13%]) or a ratio
-of 2.12 (95% CI: [1.49, 3.04]) between females and males. The measures
-in the independence category indicate that the model predicts a
-significantly higher mortality rate for females, even after conditioning
-on age.</p></li>
-<li><p>With respect to separation, we observe that all metrics show
-significant disparities. For instance, equal opportunity shows a -24%
-difference (95% CI: [-39%, -9%]) in false negative rate (FNR) between
-females and males. This indicates the model is less likely to detect
-males at risk of mortality compared to females.</p></li>
-<li><p>On the other hand, the sufficiency criterion is satisfied as
-predictive parity shows no significant difference between males and
-females (difference: -4%, 95% CI: [-21%, 13%]; ratio: 0.94, 95% CI:
-[0.72, 1.23]). This suggests that given the same prediction, the actual
-mortality rates are similar for both males and females.</p></li>
-<li><p>Among the additional metrics that assess calibration and
-discrimination, Brier Score Parity and Overall Accuracy Equality do not
-show significant disparities. However, Treatment Equality shows a
-statistically significant difference (difference: –2.21, 95% CI: [–4.35,
-–0.07]; ratio: 0.32, 95% CI: [0.15, 0.68]), indicating that males have a
-substantially higher false negative to false positive ratio compared to
-females. This suggests that male patients are more likely to be missed
-by the model relative to being incorrectly flagged.</p></li>
-</ul>
+5%. To evaluate specific fairness metrics, its possible to do so with
+the <code>eval_*</code> functions (for a list of the functions contained
+in <code>fairmetrics</code> see <a href="https://jianhuig.github.io/fairmetrics/reference/index.html">here</a>).
+For example, if we are interested in calculating the statistical parity
+of our model across gender (here assumed to be binary), we write:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">eval_stats_parity</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">data =</span> test_data, </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">outcome =</span> <span class="st">&quot;day_28_flg&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="at">probs =</span> <span class="st">&quot;pred&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="at">cutoff =</span> <span class="fl">0.41</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; There is evidence that model does not satisfy statistical parity.</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;                     Metric GroupFemale GroupMale Difference  95% Diff CI Ratio</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; 1 Positive Prediction Rate        0.17      0.09       0.08 [0.04, 0.12]  1.89</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;   95% Ratio CI</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; 1 [1.35, 2.64]</span></span></code></pre></div>
+<p>The dataframe returned gives the positive prediction rate between the
+groups defined by the binary protected attribute
+(<code>GroupFemale</code> and <code>GroupMale</code> in this case), the
+difference and ratios between the groups and the bootstrap calculated
+confidence intervals for the estimated difference and ratios. For
+inference, it can be considered that confidence interval which contains
+0 in its range for difference or 1 for ratio as insignificant.</p>
+<p>The above syntax can be extended to the other <code>eval_*</code>
+functions as well. Additionally, if one wishes to calculate various
+fairness metrics (and their confidence intervals) for the model
+simultaneously, we pass our test data with its predicted results into
+the <code>get_fairness_metrics</code> function.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">get_fairness_metrics</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="at">data =</span> test_data,</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">outcome =</span> <span class="st">&quot;day_28_flg&quot;</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="at">probs =</span> <span class="st">&quot;pred&quot;</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="at">cutoff =</span> <span class="fl">0.41</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a> )</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;            Fairness Assesment                                  Metric</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; 1          Statistical Parity                Positive Prediction Rate</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 2           Equal Opportunity                     False Negative Rate</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; 3         Predictive Equality                     False Positive Rate</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; 4  Balance for Positive Class           Avg. Predicted Positive Prob.</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 5  Balance for Negative Class           Avg. Predicted Negative Prob.</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; 6  Positive Predictive Parity               Positive Predictive Value</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; 7  Negative Predictive Parity               Negative Predictive Value</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt; 8          Brier Score Parity                             Brier Score</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; 9     Overall Accuracy Parity                                Accuracy</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; 10         Treatment Equality (False Negative)/(False Positive) Ratio</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt;    GroupFemale GroupMale Difference    95% Diff CI Ratio 95% Ratio CI</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt; 1         0.17      0.09       0.08   [0.04, 0.12]  1.89 [1.35, 2.64]</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt; 2         0.38      0.57      -0.19 [-0.34, -0.04]  0.67 [0.47, 0.94]</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt; 3         0.08      0.03       0.05   [0.02, 0.08]  2.67  [1.4, 5.08]</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; 4         0.46      0.37       0.09   [0.04, 0.14]  1.24 [1.09, 1.42]</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt; 5         0.15      0.11       0.04   [0.02, 0.06]  1.36 [1.17, 1.59]</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt; 6         0.62      0.68      -0.06  [-0.23, 0.11]  0.91 [0.71, 1.18]</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt; 7         0.92      0.91       0.01  [-0.03, 0.05]  1.01 [0.97, 1.05]</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt; 8         0.09      0.08       0.01  [-0.01, 0.03]  1.12 [0.88, 1.43]</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt; 9         0.87      0.89      -0.02  [-0.06, 0.02]  0.98 [0.93, 1.02]</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt; 10        1.03      2.78      -1.75    [-3.6, 0.1]  0.37 [0.17, 0.79]</span></span></code></pre></div>
+<p>With the <code>get_fairness_metrics</code> function, it’s possible to
+examine the bootstrapped confidence intervals to determine which
+fairness criterion show evidence of violation. From the above output,
+Statistical Parity, Equal Opportunity, Predictive Equality, Balance for
+Positive Class and Balance for Negative Class show evidence of being
+violated, while Positive Predictive Parity, Negative Predictive Parity,
+Brier Score Parity and Overall Accuracy Parity do not. Treatment
+Equality remains ambiguous: when assessed by difference, the 95%
+bootstrapped confidence interval crosses 0 - indicating that there is no
+evidence indicating that the fairness criterion is violated, but when
+assessed by ratio, the interval crosses 1 - which indicates that there
+is.</p>
+<blockquote>
+<p><strong>NOTE:</strong></p>
+<p>Statistical inference from bootstrapped confidence intervals should
+be interpreted with caution. A confidence interval crossing 0 (for
+differences) or 1 (for ratios) means the evidence is inconclusive rather
+than proving absence of unfairness. Apparent violations may reflect
+sampling variability rather than systematic bias. Always complement
+these results with domain knowledge, sensitivity analyses, and
+additional fairness diagnostics before drawing strong conclusions about
+a specific fairness assessment.</p>
+</blockquote>
+<p>While <code>fairmetrics</code> focuses only on assessing fairness of
+models across binary protected attributes, it is possible to work with
+protected attributes which consist of more than two groups by using
+“one-vs-all” comparisons and a little bit of data wrangling to create
+the appropriate columns.</p>
 </div>
-<div id="appendix-a-confidence-interval-construction" class="section level1">
-<h1>Appendix A: Confidence Interval Construction</h1>
+<div id="conditional-fairness-evaluation" class="section level1">
+<h1>Conditional Fairness Evaluation</h1>
+<p>To evaluate a model’s fairness for a specific subgroup, simply subset
+the data. For example, to evaluate the conditional statistical parity
+among subjects aged 60 and older using the previously fitted random
+forest model, subsetting the test data and and passing it through the
+<code>eval_stats_parity</code> is all that’s required.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">eval_stats_parity</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">subset</span>(test_data, age <span class="sc">&gt;=</span> <span class="dv">60</span>), </span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  <span class="at">outcome =</span> <span class="st">&quot;day_28_flg&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="at">probs =</span> <span class="st">&quot;pred&quot;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  <span class="at">cutoff =</span> <span class="fl">0.41</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">TRUE</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; There is not enough evidence that the model does not satisfy</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt;             statistical parity.</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt;                     Metric GroupFemale GroupMale Difference 95% Diff CI Ratio</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; 1 Positive Prediction Rate        0.34      0.25       0.09   [0, 0.18]  1.36</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt;   95% Ratio CI</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt; 1 [1.01, 1.84]</span></span></code></pre></div>
+<p>From the bootstrapped confidence intervals for the difference and the
+ratio, we note that there is evidence that statistical parity is
+violated based on the difference and ratio confidence intervals between
+the male and female subjects aged 60 and over. A similar example can be
+constructed with <code>get_fairness_metrics</code> for a more
+comprehensive view of the conditional fairness of the model.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">get_fairness_metrics</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">subset</span>(test_data, age <span class="sc">&gt;=</span> <span class="dv">60</span>), </span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">outcome =</span> <span class="st">&quot;day_28_flg&quot;</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="at">probs =</span> <span class="st">&quot;pred&quot;</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  <span class="at">cutoff =</span> <span class="fl">0.41</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt;            Fairness Assesment                                  Metric</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt; 1          Statistical Parity                Positive Prediction Rate</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt; 2           Equal Opportunity                     False Negative Rate</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; 3         Predictive Equality                     False Positive Rate</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; 4  Balance for Positive Class           Avg. Predicted Positive Prob.</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; 5  Balance for Negative Class           Avg. Predicted Negative Prob.</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; 6  Positive Predictive Parity               Positive Predictive Value</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; 7  Negative Predictive Parity               Negative Predictive Value</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt; 8          Brier Score Parity                             Brier Score</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt; 9     Overall Accuracy Parity                                Accuracy</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; 10         Treatment Equality (False Negative)/(False Positive) Ratio</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt;    GroupFemale GroupMale Difference   95% Diff CI Ratio 95% Ratio CI</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co">#&gt; 1         0.34      0.25       0.09  [0.01, 0.17]  1.36 [1.01, 1.83]</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co">#&gt; 2         0.30      0.46      -0.16    [-0.32, 0]  0.65 [0.41, 1.04]</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co">#&gt; 3         0.18      0.11       0.07 [-0.01, 0.15]  1.64 [0.91, 2.96]</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="co">#&gt; 4         0.50      0.41       0.09  [0.04, 0.14]  1.22 [1.08, 1.38]</span></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co">#&gt; 5         0.26      0.22       0.04  [0.01, 0.07]  1.18 [1.03, 1.36]</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co">#&gt; 6         0.63      0.69      -0.06  [-0.22, 0.1]  0.91 [0.71, 1.17]</span></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co">#&gt; 7         0.86      0.81       0.05 [-0.03, 0.13]  1.06 [0.96, 1.17]</span></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="co">#&gt; 8         0.14      0.16      -0.02 [-0.05, 0.01]  0.88 [0.71, 1.07]</span></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co">#&gt; 9         0.78      0.78       0.00 [-0.08, 0.08]  1.00  [0.91, 1.1]</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a><span class="co">#&gt; 10        0.71      1.88      -1.17  [-2.54, 0.2]  0.38 [0.16, 0.89]</span></span></code></pre></div>
+<p>Conditioning on subjects aged 60 and older, Statistical Parity,
+Balance for Positive Class and Balance for Negative Class posses
+evidence for being violated based on 95% bootstrapped confidence
+intervals. While Predictive Equality, Positive Predictive Parity,
+Negative Predictive Parity, Brier Score Parity and Overall Accuracy
+Parity do not. Similar to the unconditioned case, Treatment Equality
+remains ambiguous based on the contrast between the difference and ratio
+confidence intervals. If difference is considered, there is evidence of
+Treatment equality being violated. If ratio is considered, there does
+not.</p>
+</div>
+<div id="appendix-confidence-interval-construction" class="section level1">
+<h1>Appendix: Confidence Interval Construction</h1>
 <p>The function <code>get_fairness_metrics()</code> computes Wald-type
 confidence intervals for both group-specific and disparity metrics using
 nonparametric bootstrap. To illustrate the construction of confidence
@@ -1581,33 +595,9 @@ ratio on the original scale:</p>
 \right].
 \]</span></p>
 </div>
-<div id="appendix-b-practical-fairness-considerations" class="section level1">
-<h1>Appendix B: Practical Fairness Considerations</h1>
-<p>In the above example, both <strong>separation</strong> and
-<strong>sufficiency</strong>-based fairness criteria are important:</p>
-<ul>
-<li><strong>Separation</strong> ensures that patients at true risk are
-identified across groups, reducing under-detection in specific
-sub-populations.</li>
-<li><strong>Sufficiency</strong> ensures interventions are based solely
-on predicted need, not protected attributes.</li>
-</ul>
-<p>However, 28-day mortality differs by sex (19% for females vs. 14% for
-males), making it impossible to satisfy multiple fairness criteria
-simultaneously.</p>
-<p>Given this, enforcing <strong>independence</strong> is likely not
-advisable in this case, as it could blind the model to true mortality
-differences. However, the model <strong>violates separation</strong>,
-potentially leading to higher false negative rates among male patients
-and delayed interventions.</p>
-<p>See <a href="https://arxiv.org/abs/2207.07068">Hort et al. (2022)</a>
-for strategies to reduce disparities in separation-based metrics.</p>
-</div>
 <div id="references" class="section level1">
 <h1>References</h1>
 <ol style="list-style-type: decimal">
-<li><p>Gao, J. et al. What is Fair? Defining Fairness in Machine
-Learning for Health. arXiv.org <a href="https://arxiv.org/abs/2406.09307" class="uri">https://arxiv.org/abs/2406.09307</a> (2024).</p></li>
 <li><p>Raffa, J. (2016). Clinical data from the MIMIC-II database for a
 case study on indwelling arterial catheters (version 1.0). PhysioNet. <a href="https://doi.org/10.13026/C2NC7F" class="uri">https://doi.org/10.13026/C2NC7F</a>.</p></li>
 <li><p>Raffa J.D., Ghassemi M., Naumann T., Feng M., Hsu D. (2016) Data
@@ -1618,19 +608,21 @@ C., Mark, R., … &amp; Stanley, H. E. (2000). PhysioBank, PhysioToolkit,
 and PhysioNet: Components of a new research resource for complex
 physiologic signals. Circulation [Online]. 101 (23),
 pp. e215–e220.</p></li>
-<li><p>Hsu, D. J. et al. The association between indwelling arterial
-catheters and mortality in hemodynamically stable patients with
-respiratory failure. CHEST Journal 148, 1470–1476 (2015).</p></li>
+<li><p>Gao, J. et al. What is Fair? Defining Fairness in Machine
+Learning for Health. arXiv.org <a href="https://arxiv.org/abs/2406.09307" class="uri">https://arxiv.org/abs/2406.09307</a> (2024).</p></li>
 <li><p>Gronsbell, J. L. &amp; Cai, T. Semi-Supervised approaches to
 efficient evaluation of model prediction performance. Journal of the
 Royal Statistical Society Series B (Statistical Methodology) 80, 579–594
 (2017).</p></li>
-<li><p>Efron, B. &amp; Tibshirani, R. Bootstrap methods for standard
-errors, confidence intervals, and other measures of statistical
-accuracy. Statistical Science 1, (1986).</p></li>
 <li><p>Hort, M., Chen, Z., Zhang, J. M., Harman, M. &amp; Sarro, F. Bias
 Mitigation for Machine Learning Classifiers: A Comprehensive survey.
 arXiv.org <a href="https://arxiv.org/abs/2207.07068" class="uri">https://arxiv.org/abs/2207.07068</a> (2022).</p></li>
+<li><p>Hsu, D. J. et al. The association between indwelling arterial
+catheters and mortality in hemodynamically stable patients with
+respiratory failure. CHEST Journal 148, 1470–1476 (2015).</p></li>
+<li><p>Efron, B. &amp; Tibshirani, R. Bootstrap methods for standard
+errors, confidence intervals, and other measures of statistical
+accuracy. Statistical Science 1, (1986).</p></li>
 </ol>
 </div>
 

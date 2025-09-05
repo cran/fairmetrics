@@ -8,8 +8,6 @@ get_fairness_metrics(
   data,
   outcome,
   group,
-  group2 = NULL,
-  condition = NULL,
   probs,
   confint = TRUE,
   cutoff = 0.5,
@@ -23,15 +21,7 @@ get_fairness_metrics(
 
 \item{outcome}{The name of the column containing the true binary outcome.}
 
-\item{group}{The name of the column representing the sensitive attribute (e.g., race, gender).}
-
-\item{group2}{Define if conditional statistical parity is desired. Name of a secondary group variable used for conditional fairness analysis.}
-
-\item{condition}{Define if conditional statistical parity is desired. If the conditional group is categorical, the condition
-supplied must be a character of the levels to condition on. If the conditional
-group is continuous, the conditions supplied must be a character containing
-the sign of the condition and the value to threshold the continuous variable
-(e.g. "<50", ">50", "<=50", ">=50").}
+\item{group}{The name of the column representing the binary protected attribute (e.g., race, gender).}
 
 \item{probs}{The name of the column with predicted probabilities.}
 
@@ -46,14 +36,10 @@ the sign of the condition and the value to threshold the continuous variable
 \item{digits}{Number of digits to round the metrics to. Default is 2.}
 }
 \value{
-A list containing:
-\describe{
-\item{performance}{Data frame with performance metrics by group.}
-\item{fairness}{Data frame with computed fairness metrics and optional confidence intervals.}
-}
+A dataframe containing fairness assessments, the performance metrics they use and the evaluated results for each (binary) group (specified by the \code{group} parameter) along with the difference and ratio between them. If \code{confint} is  set to \code{TRUE}, then the estimated \verb{(1-alpha)*100\%} bootstrap confidence intervals are returned as well.
 }
 \description{
-Computes a comprehensive set of fairness metrics for binary classification models, disaggregated by a sensitive attribute (e.g., race, gender). Optionally, conditional fairness can be evaluated using a second attribute and a specified condition. The function also computes corresponding performance metrics used in the fairness calculations.
+Computes a comprehensive set of fairness metrics for binary classification models, disaggregated by a binary protected attribute. The function also computes corresponding performance metrics used in the fairness calculations.
 }
 \details{
 The results are returned as a list of two data frames:
@@ -64,8 +50,6 @@ The results are returned as a list of two data frames:
 \subsection{Fairness Metrics Included:}{
 \itemize{
 \item \strong{Statistical Parity}: Difference in positive prediction rates across groups.
-\item \strong{Conditional Statistical Parity} \emph{(if group2 and condition are specified)}:
-Parity conditioned on a second group and value.
 \item \strong{Equal Opportunity}: Difference in true positive rates (TPR) across groups.
 \item \strong{Predictive Equality}: Difference in false positive rates (FPR) across groups.
 \item \strong{Balance for Positive Class}: Checks whether the predicted probability distributions for
@@ -77,6 +61,8 @@ positive outcomes are similar across groups.
 \item \strong{Overall Accuracy Parity}: Difference in overall accuracy across groups.
 \item \strong{Treatment Equality}: Ratio of false negatives to false positives across groups.
 }
+
+\strong{NOTE:} Statistical inference from bootstrapped confidence intervals should be interpreted with caution. A confidence interval crossing 0 (for differences) or 1 (for ratios) means the evidence is inconclusive rather than proving absence of unfairness. Apparent violations may reflect sampling variability rather than systematic bias. Always complement these results with domain knowledge, sensitivity analyses, and additional fairness diagnostics before drawing strong conclusions about a specific fairness assessment.
 }
 }
 \examples{
@@ -99,7 +85,7 @@ test_data <- mimic_preprocessed \%>\%
 test_data$pred <- predict(rf_model, newdata = test_data, type = "prob")[, 2]
 
 # Fairness evaluation
-# We will use sex as the sensitive attribute and day_28_flg as the outcome.
+# We will use sex as the protected attribute and day_28_flg as the outcome.
 # We choose threshold = 0.41 so that the overall FPR is around 5\%.
 
 # Get Fairness Metrics
@@ -107,8 +93,6 @@ get_fairness_metrics(
  data = test_data,
  outcome = "day_28_flg",
  group = "gender",
- group2 = "age",
- condition = ">=60",
  probs = "pred",
  confint = TRUE,
  cutoff = 0.41,
