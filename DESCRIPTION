@@ -1,7 +1,7 @@
 Package: fairmetrics
 Title: Fairness Evaluation Metrics with Confidence Intervals for Binary
         Protected Attributes
-Version: 1.0.5
+Version: 1.0.6
 Authors@R: 
     c(
     person("Jianhui", "Gao", email = "jianhui.gao@mail.utoronto.ca", role = c("aut"),comment = c(ORCID = "0000-0003-0915-1473")),
@@ -23,7 +23,7 @@ LazyData: true
 URL: https://jianhuig.github.io/fairmetrics/
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2025-09-05 15:32:47 UTC; ben29
+Packaged: 2025-09-10 17:10:36 UTC; ben29
 Author: Jianhui Gao [aut] (ORCID: <https://orcid.org/0000-0003-0915-1473>),
   Benjamin Smith [aut, cre] (ORCID:
     <https://orcid.org/0009-0007-2206-0177>),
@@ -32,4 +32,4 @@ Author: Jianhui Gao [aut] (ORCID: <https://orcid.org/0000-0003-0915-1473>),
     <https://orcid.org/0000-0002-5360-5869>)
 Maintainer: Benjamin Smith <benyamin.smith@mail.utoronto.ca>
 Repository: CRAN
-Date/Publication: 2025-09-05 19:10:02 UTC
+Date/Publication: 2025-09-11 07:20:07 UTC

@@ -1,4 +1,4 @@
-304d6b74a42dc2fe42f0c7a718665c30 *DESCRIPTION
+17828372e2921c30ebf98ba134cd88ba *DESCRIPTION
 cbb59ec4cff4ed3ba9c145cc1cab118c *LICENSE
 93012f518ec8491a514d9f4808cb7cbd *NAMESPACE
 5ad9c983e9a06adc2f3ab8659de3ced5 *R/ModelPerformance.R
@@ -15,14 +15,14 @@ a2397c32771262e8f21f5ab34f908a22 *R/eval_pos_pred_parity.R
 a98015cdfd183432ba5beba6baafcffb *R/eval_pred_equality.R
 65b75131b5d995eaef2ba10adb8f0341 *R/eval_stats_parity.R
 614c07131083f5ad35b471703f0b9abd *R/eval_treatment_equality.R
-80492ae4f862d40c668f7763cda0c64a *R/get_fairness_metrics.R
+5f9517df8a25974234b4d0a6e69c0201 *R/get_fairness_metrics.R
 6ac666d795c5a1b277c18b91238cc87d *build/vignette.rds
 352ab9b40c4d587861af385de4a425be *data/mimic.rda
 f061ad1846aff969df299692f21aa3c1 *data/mimic_preprocessed.rda
 5684942fe47639a4aaba12af8c8058b1 *inst/CITATION
 f8f0b47e8eb08f1962ab1beca9d08e02 *inst/doc/fairmetrics.R
 4c4e845883d5005998566d8098d8875f *inst/doc/fairmetrics.Rmd
-d7a878b6d8583167b29091f394ce891a *inst/doc/fairmetrics.html
+06298d904af5d18aa682373edaf64ac9 *inst/doc/fairmetrics.html
 a4bab7bb7fa7c52f14570aaad1a7aadc *man/eval_acc_parity.Rd
 a432aa8617333757a4c797fa5b160a16 *man/eval_bs_parity.Rd
 7200eade2035eb662d250d348a688ba4 *man/eval_cond_acc_equality.Rd
